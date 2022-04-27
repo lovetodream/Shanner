@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		06527FDE2819A906001FB6E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06527FDD2819A906001FB6E2 /* AppDelegate.swift */; };
 		06527FE02819A906001FB6E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06527FDF2819A906001FB6E2 /* SceneDelegate.swift */; };
-		06527FE22819A906001FB6E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06527FE12819A906001FB6E2 /* ViewController.swift */; };
 		06527FE52819A906001FB6E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06527FE32819A906001FB6E2 /* Main.storyboard */; };
 		06527FE82819A906001FB6E2 /* Shanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06527FE62819A906001FB6E2 /* Shanner.xcdatamodeld */; };
 		06527FEA2819A908001FB6E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06527FE92819A908001FB6E2 /* Assets.xcassets */; };
@@ -17,6 +16,7 @@
 		06527FF82819A908001FB6E2 /* ShannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06527FF72819A908001FB6E2 /* ShannerTests.swift */; };
 		065280022819A908001FB6E2 /* ShannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065280012819A908001FB6E2 /* ShannerUITests.swift */; };
 		065280042819A908001FB6E2 /* ShannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065280032819A908001FB6E2 /* ShannerUITestsLaunchTests.swift */; };
+		065280112819B7BF001FB6E2 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065280102819B7BF001FB6E2 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		06527FDA2819A906001FB6E2 /* Shanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06527FDD2819A906001FB6E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06527FDF2819A906001FB6E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		06527FE12819A906001FB6E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		06527FE42819A906001FB6E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06527FE72819A906001FB6E2 /* Shanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shanner.xcdatamodel; sourceTree = "<group>"; };
 		06527FE92819A908001FB6E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		06527FFD2819A908001FB6E2 /* ShannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		065280012819A908001FB6E2 /* ShannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShannerUITests.swift; sourceTree = "<group>"; };
 		065280032819A908001FB6E2 /* ShannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		065280102819B7BF001FB6E2 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,8 @@
 			children = (
 				06527FDD2819A906001FB6E2 /* AppDelegate.swift */,
 				06527FDF2819A906001FB6E2 /* SceneDelegate.swift */,
-				06527FE12819A906001FB6E2 /* ViewController.swift */,
 				06527FE32819A906001FB6E2 /* Main.storyboard */,
+				065280102819B7BF001FB6E2 /* ScannerViewController.swift */,
 				06527FE92819A908001FB6E2 /* Assets.xcassets */,
 				06527FEB2819A908001FB6E2 /* LaunchScreen.storyboard */,
 				06527FEE2819A908001FB6E2 /* Info.plist */,
@@ -261,10 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06527FE22819A906001FB6E2 /* ViewController.swift in Sources */,
 				06527FDE2819A906001FB6E2 /* AppDelegate.swift in Sources */,
 				06527FE02819A906001FB6E2 /* SceneDelegate.swift in Sources */,
 				06527FE82819A906001FB6E2 /* Shanner.xcdatamodeld in Sources */,
+				065280112819B7BF001FB6E2 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
