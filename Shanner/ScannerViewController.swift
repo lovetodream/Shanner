@@ -6,8 +6,11 @@
 //
 
 import VisionKit
+import CoreData
 
 class ScannerViewController: UIViewController {
+
+    lazy var moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -23,7 +26,15 @@ class ScannerViewController: UIViewController {
 
 extension ScannerViewController: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        // #warning("TODO: Safe the scanned stuff")
+        #warning("TODO: Safe the scanned stuff")
+
+        guard let moc = moc else {
+            dismissToDocuments()
+            return
+        }
+
+        let document = Document(context: moc)
+        document.scan = scan
         dismissToDocuments()
     }
 
