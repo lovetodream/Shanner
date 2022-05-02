@@ -6,7 +6,6 @@
 //
 
 import VisionKit
-import CoreData
 
 class ScannerViewController: UIViewController {
 
@@ -39,6 +38,10 @@ extension ScannerViewController: VNDocumentCameraViewControllerDelegate {
     }
 
     func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
+        dismissToDocuments()
+    }
+
+    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
         dismissToDocuments()
     }
 
