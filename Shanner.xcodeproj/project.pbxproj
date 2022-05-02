@@ -17,6 +17,8 @@
 		065280022819A908001FB6E2 /* ShannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065280012819A908001FB6E2 /* ShannerUITests.swift */; };
 		065280042819A908001FB6E2 /* ShannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065280032819A908001FB6E2 /* ShannerUITestsLaunchTests.swift */; };
 		065280112819B7BF001FB6E2 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065280102819B7BF001FB6E2 /* ScannerViewController.swift */; };
+		06E462CD281C2D8C0060D16B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E462CC281C2D8C0060D16B /* Document.swift */; };
+		06E462CF28203AA10060D16B /* DocumentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E462CE28203AA10060D16B /* DocumentsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		065280012819A908001FB6E2 /* ShannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShannerUITests.swift; sourceTree = "<group>"; };
 		065280032819A908001FB6E2 /* ShannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		065280102819B7BF001FB6E2 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		06E462CC281C2D8C0060D16B /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		06E462CE28203AA10060D16B /* DocumentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +105,11 @@
 		06527FDC2819A906001FB6E2 /* Shanner */ = {
 			isa = PBXGroup;
 			children = (
-				06527FDD2819A906001FB6E2 /* AppDelegate.swift */,
-				06527FDF2819A906001FB6E2 /* SceneDelegate.swift */,
+				06E462C7281B11220060D16B /* Delegate */,
+				06E462CB281C2D770060D16B /* Model */,
+				06E462C8281B14D70060D16B /* View */,
+				06E462C6281B11100060D16B /* ViewController */,
 				06527FE32819A906001FB6E2 /* Main.storyboard */,
-				065280102819B7BF001FB6E2 /* ScannerViewController.swift */,
 				06527FE92819A908001FB6E2 /* Assets.xcassets */,
 				06527FEB2819A908001FB6E2 /* LaunchScreen.storyboard */,
 				06527FEE2819A908001FB6E2 /* Info.plist */,
@@ -128,6 +133,39 @@
 				065280032819A908001FB6E2 /* ShannerUITestsLaunchTests.swift */,
 			);
 			path = ShannerUITests;
+			sourceTree = "<group>";
+		};
+		06E462C6281B11100060D16B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				06E462CE28203AA10060D16B /* DocumentsTableViewController.swift */,
+				065280102819B7BF001FB6E2 /* ScannerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		06E462C7281B11220060D16B /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				06527FDD2819A906001FB6E2 /* AppDelegate.swift */,
+				06527FDF2819A906001FB6E2 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		06E462C8281B14D70060D16B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		06E462CB281C2D770060D16B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06E462CC281C2D8C0060D16B /* Document.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +302,8 @@
 				06527FDE2819A906001FB6E2 /* AppDelegate.swift in Sources */,
 				06527FE02819A906001FB6E2 /* SceneDelegate.swift in Sources */,
 				06527FE82819A906001FB6E2 /* Shanner.xcdatamodeld in Sources */,
+				06E462CD281C2D8C0060D16B /* Document.swift in Sources */,
+				06E462CF28203AA10060D16B /* DocumentsTableViewController.swift in Sources */,
 				065280112819B7BF001FB6E2 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
