@@ -32,8 +32,7 @@ extension ScannerViewController: VNDocumentCameraViewControllerDelegate {
             return
         }
 
-        let document = Document(context: moc)
-        document.scan = scan
+        let document = Document(context: moc, scan: scan)
         dismissToDocuments()
     }
 
