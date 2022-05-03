@@ -29,6 +29,7 @@ class DocumentsTableViewController: UITableViewController {
         let managedObjectContext = appDelegate.persistentContainer.viewContext
 
         let fetchRequest = Document.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Document.createdAt, ascending: false)]
 
         do {
             documents = try managedObjectContext.fetch(fetchRequest)
