@@ -14,7 +14,6 @@ extension Document {
 
     /// Creates a pdf document from a scan.
     /// **Be aware that this method does not safe the document to Core Data.**
-    ///
     /// - Parameter scan: the scan which should be converted to a pdf
     /// - Returns: the created document
     static func createPDF(from scan: VNDocumentCameraScan) -> PDFDocument {
@@ -27,8 +26,14 @@ extension Document {
         return pdfDocument
     }
 
+    /// Returns a PDF document from the data stored in the Document, if non is available or can't be constructed, it returns nil.
+    /// - Returns: A PDF document if available
+    func getPDF() -> PDFDocument? {
+        guard let document = document else { return nil }
+        return PDFDocument(data: document)
+    }
+
     /// Initialises a document from a scan and inserts it into the given context.
-    ///
     /// - Parameters:
     ///   - context: The context into which the document should be inserted.
     ///   - scan: The VNDocumentCameraScan used to create the document.
