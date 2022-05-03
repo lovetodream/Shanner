@@ -14,6 +14,8 @@ class DocumentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(UINib(nibName: DocumentsTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: DocumentsTableViewCell.reuseIdentifier)
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -52,9 +54,16 @@ class DocumentsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DocumentsTableViewCell.reuseIdentifier, for: indexPath) as? DocumentsTableViewCell else {
+            fatalError("The cell with reuse identifier \(DocumentsTableViewCell.reuseIdentifier) is not implemented!")
+        }
 
-        cell.textLabel?.text = documents[indexPath.row].title ?? "Empty"
+        let document = documents[indexPath.row]
+
+        cell.titleLabel.text = document.title
+        cell.subtitleLabel.text = document.pageCount == 1 ? "\(document.pageCount) Page" : "\(document.pageCount) Pages"
+        cell.thumbnailImageView.image = document.getPDF()?.page(at: 0)?.thumbnail(of: CGSize(width: 100.0, height: 150.0), for: .mediaBox)
+        cell.thumbnailImageView.layer.cornerRadius = 10.0
 
         return cell
     }
