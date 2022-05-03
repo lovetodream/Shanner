@@ -36,6 +36,8 @@ class DocumentsTableViewController: UITableViewController {
         } catch let error as NSError {
             print("Could not fetch documents. \(error), \(error.userInfo)")
         }
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
