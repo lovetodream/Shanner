@@ -29,8 +29,8 @@ extension Document {
     /// Returns a PDF document from the data stored in the Document, if non is available or can't be constructed, it returns nil.
     /// - Returns: A PDF document if available
     func getPDF() -> PDFDocument? {
-        guard let document = document else { return nil }
-        return PDFDocument(data: document)
+        guard let pdfData = data else { return nil }
+        return PDFDocument(data: pdfData)
     }
 
     /// Initialises a document from a scan and inserts it into the given context.
@@ -40,7 +40,7 @@ extension Document {
     convenience init(context: NSManagedObjectContext, scan: VNDocumentCameraScan) {
         self.init(context: context)
         let pdf = Self.createPDF(from: scan)
-        self.document = pdf.dataRepresentation()
+        self.data = pdf.dataRepresentation()
         self.pageCount = Int16(pdf.pageCount)
         self.createdAt = .now
 

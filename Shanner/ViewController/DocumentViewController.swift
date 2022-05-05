@@ -24,7 +24,7 @@ class DocumentViewController: UIViewController {
 
         pdfView.autoScales = true
 
-        guard let pdfData = document.document, let pdfDocument = PDFDocument(data: pdfData) else {
+        guard let pdfData = document.data, let pdfDocument = PDFDocument(data: pdfData) else {
             return
         }
 
