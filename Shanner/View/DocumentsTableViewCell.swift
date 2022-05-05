@@ -21,7 +21,11 @@ class DocumentsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         // Initialization code
+        thumbnailImageView.layer.cornerRadius = 10.0
+        thumbnailImageView.layer.masksToBounds = true
+        thumbnailImageView.contentMode = .scaleAspectFill
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
