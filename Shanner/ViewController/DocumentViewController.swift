@@ -30,6 +30,9 @@ class DocumentViewController: UIViewController {
 
         // Found that the following scale factor fits best by testing different values
         pdfView.scaleFactor = pdfView.scaleFactorForSizeToFit * 0.85
+
+        let barButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(_:)))
+        navigationItem.rightBarButtonItem = barButton
     }
     
 
@@ -42,5 +45,11 @@ class DocumentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    @objc func share(_ target: Any) {
+        let activityViewController = UIActivityViewController(activityItems: [DocumentActivityItemSource(document: document)], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(activityViewController, animated: true)
+    }
 
 }
