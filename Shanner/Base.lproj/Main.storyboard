@@ -44,6 +44,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6sj-Gs-oZp" kind="show" identifier="showDocument" id="1it-Iz-y3N"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -56,6 +59,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWN-8g-ZkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2381" y="481"/>
+        </scene>
+        <!--Document View Controller-->
+        <scene sceneID="3IG-rb-5Kl">
+            <objects>
+                <viewController id="6sj-Gs-oZp" customClass="DocumentViewController" customModule="Shanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C1g-ne-xaY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YgO-13-I64"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dvN-Wu-Jxr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVj-eZ-l8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3264" y="481"/>
         </scene>
         <!--Documents-->
         <scene sceneID="SAt-f5-Umk">

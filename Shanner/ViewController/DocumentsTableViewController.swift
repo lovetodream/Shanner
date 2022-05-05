@@ -72,6 +72,11 @@ class DocumentsTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedDocument = documents[indexPath.row]
+        performSegue(withIdentifier: "showDocument", sender: self)
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -107,14 +112,19 @@ class DocumentsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        guard segue.identifier == "showDocument",
+              let selectedDocument = selectedDocument,
+              let destinationViewController = segue.destination as? DocumentViewController else {
+            return
+        }
+
+        destinationViewController.document = selectedDocument
     }
-    */
 
 }
