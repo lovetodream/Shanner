@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
 class DocumentsTableViewController: UITableViewController {
 
     var documents = [Document]()
     var selectedDocument: Document?
+
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError("AppDelegate missing") }
+        return appDelegate.persistentContainer.viewContext
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +28,11 @@ class DocumentsTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-
-        let managedObjectContext = appDelegate.persistentContainer.viewContext
 
         let fetchRequest = Document.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Document.createdAt, ascending: false)]
@@ -81,17 +83,17 @@ class DocumentsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let document = documents[indexPath.row]
+            managedObjectContext.delete(document)
+            try? managedObjectContext.save()
+            documents.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
