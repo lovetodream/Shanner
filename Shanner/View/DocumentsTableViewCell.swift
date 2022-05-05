@@ -14,9 +14,28 @@ class DocumentsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
+
+    weak var viewController: UITableViewController?
+
+    var document: Document? {
+        didSet {
+            guard let document = document else { return }
+
+            titleLabel.text = document.title
+            subtitleLabel.text = document.pageCount == 1 ? "\(document.pageCount) Page" : "\(document.pageCount) Pages"
+            thumbnailImageView.image = document.getPDF()?
+                .page(at: 0)?
+                .thumbnail(of: CGSize(width: 100.0, height: 100.0), for: .mediaBox)
+        }
+    }
 
     @IBAction func shareAction(_ sender: UIButton) {
-        #warning("TODO: open share menu")
+        guard let document = document else { return }
+
+        let activityViewController = UIActivityViewController(activityItems: [DocumentActivityItemSource(document: document)], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = shareButton
+        viewController?.present(activityViewController, animated: true)
     }
 
     override func awakeFromNib() {

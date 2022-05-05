@@ -70,6 +70,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageView" destination="c63-LB-zFT" id="aPk-qP-CIe"/>
+                <outlet property="shareButton" destination="cez-iP-vI1" id="w5Z-Ph-gAr"/>
                 <outlet property="subtitleLabel" destination="ksA-6X-dxu" id="VkK-6c-60c"/>
                 <outlet property="thumbnailImageView" destination="c63-LB-zFT" id="YlE-qc-wB2"/>
                 <outlet property="titleLabel" destination="vzv-GH-Oqy" id="3dn-rX-764"/>

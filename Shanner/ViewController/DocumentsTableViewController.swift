@@ -62,12 +62,8 @@ class DocumentsTableViewController: UITableViewController {
         }
 
         let document = documents[indexPath.row]
-
-        cell.titleLabel.text = document.title
-        cell.subtitleLabel.text = document.pageCount == 1 ? "\(document.pageCount) Page" : "\(document.pageCount) Pages"
-        cell.thumbnailImageView.image = document.getPDF()?
-            .page(at: 0)?
-            .thumbnail(of: CGSize(width: 100.0, height: 100.0), for: .mediaBox)
+        cell.document = document
+        cell.viewController = self
 
         return cell
     }

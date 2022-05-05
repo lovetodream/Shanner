@@ -20,6 +20,7 @@
 		06796E4F2821B5B900C9B4E1 /* DocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06796E4D2821B5B900C9B4E1 /* DocumentsTableViewCell.swift */; };
 		06796E502821B5B900C9B4E1 /* DocumentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06796E4E2821B5B900C9B4E1 /* DocumentsTableViewCell.xib */; };
 		06A33F2028242A7400BC2B20 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A33F1F28242A7400BC2B20 /* DocumentViewController.swift */; };
+		06A33F2228243FF500BC2B20 /* DocumentActivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A33F2128243FF500BC2B20 /* DocumentActivityItemSource.swift */; };
 		06E462CD281C2D8C0060D16B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E462CC281C2D8C0060D16B /* Document.swift */; };
 		06E462CF28203AA10060D16B /* DocumentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E462CE28203AA10060D16B /* DocumentsTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		06796E4D2821B5B900C9B4E1 /* DocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewCell.swift; sourceTree = "<group>"; };
 		06796E4E2821B5B900C9B4E1 /* DocumentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentsTableViewCell.xib; sourceTree = "<group>"; };
 		06A33F1F28242A7400BC2B20 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		06A33F2128243FF500BC2B20 /* DocumentActivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentActivityItemSource.swift; sourceTree = "<group>"; };
 		06E462CC281C2D8C0060D16B /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		06E462CE28203AA10060D16B /* DocumentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				06E462CC281C2D8C0060D16B /* Document.swift */,
+				06A33F2128243FF500BC2B20 /* DocumentActivityItemSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				06796E4F2821B5B900C9B4E1 /* DocumentsTableViewCell.swift in Sources */,
 				06527FDE2819A906001FB6E2 /* AppDelegate.swift in Sources */,
 				06527FE02819A906001FB6E2 /* SceneDelegate.swift in Sources */,
+				06A33F2228243FF500BC2B20 /* DocumentActivityItemSource.swift in Sources */,
 				06527FE82819A906001FB6E2 /* Shanner.xcdatamodeld in Sources */,
 				06E462CD281C2D8C0060D16B /* Document.swift in Sources */,
 				06A33F2028242A7400BC2B20 /* DocumentViewController.swift in Sources */,
