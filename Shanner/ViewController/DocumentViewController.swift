@@ -22,13 +22,14 @@ class DocumentViewController: UIViewController {
         pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(pdfView)
 
-        pdfView.autoScales = true
-
         guard let pdfData = document.data, let pdfDocument = PDFDocument(data: pdfData) else {
             return
         }
 
         pdfView.document = pdfDocument
+
+        // Found that the following scale factor fits best by testing different values
+        pdfView.scaleFactor = pdfView.scaleFactorForSizeToFit * 0.85
     }
     
 
