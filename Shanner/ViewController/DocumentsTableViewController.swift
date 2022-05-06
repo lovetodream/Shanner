@@ -41,6 +41,11 @@ class DocumentsTableViewController: UITableViewController {
         searchController.searchBar.placeholder = "Search Documents"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(reverseDocuments(_:)))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -136,6 +141,12 @@ class DocumentsTableViewController: UITableViewController {
 
         destinationViewController.document = selectedDocument
         destinationViewController.managedObjectContext = managedObjectContext
+    }
+
+    @objc func reverseDocuments(_ target: Any) {
+        documents.reverse()
+        if (isFiltering) { filteredDocuments.reverse() }
+        tableView.reloadData()
     }
 
 }
