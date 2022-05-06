@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="66" width="24" height="17.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xq2-Od-qxN">
-                                <rect key="frame" x="44" y="53" width="266.5" height="44.5"/>
+                                <rect key="frame" x="44" y="53" width="263" height="44.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzv-GH-Oqy">
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="23"/>
@@ -41,7 +41,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cez-iP-vI1">
-                                <rect key="frame" x="330.5" y="59.5" width="39.5" height="31"/>
+                                <rect key="frame" x="327" y="58" width="43" height="34"/>
                                 <buttonConfiguration key="configuration" style="gray">
                                     <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="default"/>
                                 </buttonConfiguration>
@@ -67,7 +67,6 @@
             <connections>
                 <outlet property="imageView" destination="c63-LB-zFT" id="aPk-qP-CIe"/>
                 <outlet property="shareButton" destination="cez-iP-vI1" id="w5Z-Ph-gAr"/>
-                <outlet property="stackView" destination="4eo-da-lU9" id="Kcf-k1-g1n"/>
                 <outlet property="subtitleLabel" destination="ksA-6X-dxu" id="VkK-6c-60c"/>
                 <outlet property="thumbnailImageView" destination="c63-LB-zFT" id="YlE-qc-wB2"/>
                 <outlet property="titleLabel" destination="vzv-GH-Oqy" id="3dn-rX-764"/>
