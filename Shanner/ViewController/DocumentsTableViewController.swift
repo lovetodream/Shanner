@@ -11,12 +11,19 @@ import CoreData
 class DocumentsTableViewController: UITableViewController {
 
     var documents = [Document]()
+    var filteredDocuments = [Document]()
     var selectedDocument: Document?
+
+    var searchController = UISearchController(searchResultsController: nil)
 
     lazy var managedObjectContext: NSManagedObjectContext = {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError("AppDelegate missing") }
         return appDelegate.persistentContainer.viewContext
     }()
+
+    var isFiltering: Bool {
+      return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,11 @@ class DocumentsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search Documents"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,8 +65,7 @@ class DocumentsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return documents.count
+        return isFiltering ? filteredDocuments.count : documents.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +74,7 @@ class DocumentsTableViewController: UITableViewController {
             fatalError("The cell with reuse identifier \(DocumentsTableViewCell.reuseIdentifier) is not implemented!")
         }
 
-        let document = documents[indexPath.row]
+        let document = currentDocument(for: indexPath)
         cell.document = document
         cell.viewController = self
 
@@ -71,7 +82,7 @@ class DocumentsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedDocument = documents[indexPath.row]
+        selectedDocument = currentDocument(for: indexPath)
         performSegue(withIdentifier: "showDocument", sender: self)
     }
 
@@ -87,10 +98,11 @@ class DocumentsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let document = documents[indexPath.row]
+            let document = currentDocument(for: indexPath)
             managedObjectContext.delete(document)
             try? managedObjectContext.save()
-            documents.remove(at: indexPath.row)
+            if (isFiltering) { filteredDocuments.removeAll { $0.id == document.id } }
+            documents.removeAll { $0.id == document.id }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -124,6 +136,23 @@ class DocumentsTableViewController: UITableViewController {
 
         destinationViewController.document = selectedDocument
         destinationViewController.managedObjectContext = managedObjectContext
+    }
+
+}
+
+extension DocumentsTableViewController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        filteredDocuments = documents.filter { document in
+            guard let title = document.title else { return false }
+            return title.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
+    }
+
+    func currentDocument(for indexPath: IndexPath) -> Document {
+        isFiltering ? filteredDocuments[indexPath.row] : documents[indexPath.row]
     }
 
 }
