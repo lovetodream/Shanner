@@ -35,7 +35,11 @@ class DocumentViewController: UIViewController {
         pdfView.document = pdfDocument
 
         // Found that the following scale factor fits best by testing different values
-        pdfView.scaleFactor = pdfView.scaleFactorForSizeToFit * 0.85
+        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
+            pdfView.scaleFactor = pdfView.scaleFactorForSizeToFit * 0.85
+        } else {
+            pdfView.autoScales = true
+        }
 
         let barButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(_:)))
         navigationItem.rightBarButtonItem = barButton

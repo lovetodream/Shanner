@@ -30,11 +30,18 @@ class DocumentsTableViewCell: UITableViewCell {
                !title.contains(formattedDate) {
                 subtitleLabel.text = "\(subtitle) (\(formattedDate)"
             }
+
             thumbnailImageView.image = document.getPDF()?
                 .page(at: 0)?
-                .thumbnail(of: CGSize(width: 100.0, height: 100.0), for: .mediaBox)
+                .thumbnail(of: imageSize, for: .mediaBox)
+            thumbnailImageView.addConstraints([thumbnailImageView.widthAnchor.constraint(equalToConstant: imageSize.width), thumbnailImageView.heightAnchor.constraint(equalToConstant: imageSize.height)])
         }
     }
+
+    let imageSize: CGSize = {
+        let dimension = UIScreen.main.bounds.size.width / 8
+        return CGSize(width: dimension, height: dimension)
+    }()
 
     @IBAction func shareAction(_ sender: UIButton) {
         guard let document = document else { return }
@@ -47,7 +54,7 @@ class DocumentsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        // Initialization code
+        // Initialisation code
         thumbnailImageView.layer.cornerRadius = 10.0
         thumbnailImageView.layer.masksToBounds = true
         thumbnailImageView.contentMode = .scaleAspectFill

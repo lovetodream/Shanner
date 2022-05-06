@@ -17,18 +17,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="420" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-da-lU9">
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-da-lU9">
                         <rect key="frame" x="25" y="15" width="370" height="150"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c63-LB-zFT">
-                                <rect key="frame" x="0.0" y="26" width="100" height="97.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="DId-d1-66L"/>
-                                    <constraint firstAttribute="height" constant="100" id="Y4A-qr-TvG"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="66" width="24" height="17.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xq2-Od-qxN">
-                                <rect key="frame" x="135" y="53" width="160.5" height="44.5"/>
+                                <rect key="frame" x="44" y="53" width="266.5" height="44.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzv-GH-Oqy">
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="23"/>
@@ -71,6 +67,7 @@
             <connections>
                 <outlet property="imageView" destination="c63-LB-zFT" id="aPk-qP-CIe"/>
                 <outlet property="shareButton" destination="cez-iP-vI1" id="w5Z-Ph-gAr"/>
+                <outlet property="stackView" destination="4eo-da-lU9" id="Kcf-k1-g1n"/>
                 <outlet property="subtitleLabel" destination="ksA-6X-dxu" id="VkK-6c-60c"/>
                 <outlet property="thumbnailImageView" destination="c63-LB-zFT" id="YlE-qc-wB2"/>
                 <outlet property="titleLabel" destination="vzv-GH-Oqy" id="3dn-rX-764"/>
