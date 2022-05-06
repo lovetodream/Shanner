@@ -23,7 +23,13 @@ class DocumentsTableViewCell: UITableViewCell {
             guard let document = document else { return }
 
             titleLabel.text = document.title
-            subtitleLabel.text = document.pageCount == 1 ? "\(document.pageCount) Page" : "\(document.pageCount) Pages"
+            subtitleLabel.text = (document.pageCount == 1 ? "\(document.pageCount) Page" : "\(document.pageCount) Pages")
+            if let subtitle = subtitleLabel.text,
+               let formattedDate = document.createdAt?.formatted(date: .abbreviated, time: .shortened),
+               let title = titleLabel.text,
+               !title.contains(formattedDate) {
+                subtitleLabel.text = "\(subtitle) (\(formattedDate)"
+            }
             thumbnailImageView.image = document.getPDF()?
                 .page(at: 0)?
                 .thumbnail(of: CGSize(width: 100.0, height: 100.0), for: .mediaBox)
