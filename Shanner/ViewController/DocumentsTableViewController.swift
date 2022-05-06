@@ -123,6 +123,7 @@ class DocumentsTableViewController: UITableViewController {
         }
 
         destinationViewController.document = selectedDocument
+        destinationViewController.managedObjectContext = managedObjectContext
     }
 
 }

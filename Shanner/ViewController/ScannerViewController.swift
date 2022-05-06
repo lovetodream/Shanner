@@ -25,8 +25,6 @@ class ScannerViewController: UIViewController {
 
 extension ScannerViewController: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        #warning("TODO: Safe the scanned stuff")
-
         guard let managedObjectContext = managedObjectContext else {
             dismissToDocuments()
             return
