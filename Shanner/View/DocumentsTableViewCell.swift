@@ -32,7 +32,7 @@ class DocumentsTableViewCell: UITableViewCell {
                let formattedDate = document.createdAt?.formatted(date: .abbreviated, time: .shortened),
                let title = titleLabel.text,
                !title.contains(formattedDate) {
-                subtitleLabel.text = "\(subtitle) (\(formattedDate)"
+                subtitleLabel.text = "\(subtitle) (\(formattedDate))"
             }
 
             thumbnailImageView.image = document.getPDF()?
