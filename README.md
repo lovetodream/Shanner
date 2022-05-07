@@ -4,7 +4,7 @@
 
 An app to scan and share documents created as the final project for CS50.
 
-View the instruction video [here](TODO)TODO.
+View the instruction video [here](https://youtu.be/A2gl0tNPf-U).
 
 
 ## Run Locally
