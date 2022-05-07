@@ -9,18 +9,22 @@ import UIKit
 import PDFKit
 import CoreData
 
+/// The view controller to show the PDF of a document's data.
 class DocumentViewController: UIViewController {
 
+    /// The document to show passed in by the parent view controller, most likely ``DocumentsTableViewController``.
     var document: Document!
 
+    /// The managed object context passed in by the parent view controller, most likely ``DocumentsTableViewController``.
     var managedObjectContext: NSManagedObjectContext!
 
+    /// The custom title view for the view's navigation item.
     lazy var titleView = DocumentTitleView(title: document.title)
 
+    /// Sets the title view (``titleView``) with it's action for the navigation item and the PDF as the view's content.
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         navigationItem.titleView = titleView
         titleView.buttonView.addTarget(self, action: #selector(editTitle(_:)), for: .touchUpInside)
 
@@ -44,18 +48,9 @@ class DocumentViewController: UIViewController {
         let barButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(_:)))
         navigationItem.rightBarButtonItem = barButton
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    /// Presents an activity view with a ``DocumentActivityItemSource``.
+    /// - Parameter target: The action's target.
     @objc func share(_ target: Any) {
         let activityViewController = UIActivityViewController(activityItems: [DocumentActivityItemSource(document: document)], applicationActivities: nil)
         activityViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
@@ -63,6 +58,8 @@ class DocumentViewController: UIViewController {
     }
 
 
+    /// Presents an alert with a text field to change the title of ``document``.
+    /// - Parameter target: The action's target.
     @objc func editTitle(_ target: Any) {
         let alertController = UIAlertController(title: "New Title", message: nil, preferredStyle: .alert)
         alertController.addTextField()
