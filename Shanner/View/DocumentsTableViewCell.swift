@@ -7,8 +7,10 @@
 
 import UIKit
 
+/// The table view cell for ``DocumentsTableViewController``.
 class DocumentsTableViewCell: UITableViewCell {
 
+    /// The reuse identifier for the table view cell.
     static let reuseIdentifier = String(describing: DocumentsTableViewCell.self)
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,8 +18,10 @@ class DocumentsTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
 
+    /// A weak reference to its view controller, most likely ``DocumentsTableViewController``.
     weak var viewController: UITableViewController?
 
+    /// The document shown in the cell. After it's been set, the content of the cell will be adjusted accordingly.
     var document: Document? {
         didSet {
             guard let document = document else { return }
@@ -38,11 +42,15 @@ class DocumentsTableViewCell: UITableViewCell {
         }
     }
 
-    let imageSize: CGSize = {
+    /// The size for ``thumbnailImageView``, calculated by the screen size.
+    private let imageSize: CGSize = {
         let dimension = UIScreen.main.bounds.size.width / 8
         return CGSize(width: dimension, height: dimension)
     }()
 
+    /// Presents an activity view with a ``DocumentActivityItemSource``.
+    /// If ``document`` is nil, nothing happens.
+    /// - Parameter sender: The sender of the action.
     @IBAction func shareAction(_ sender: UIButton) {
         guard let document = document else { return }
 
@@ -51,6 +59,7 @@ class DocumentsTableViewCell: UITableViewCell {
         viewController?.present(activityViewController, animated: true)
     }
 
+    /// Awakes the view and adjusts the layout of ``thumbnailImageView``.
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -60,10 +69,4 @@ class DocumentsTableViewCell: UITableViewCell {
         thumbnailImageView.contentMode = .scaleAspectFill
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
